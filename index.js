@@ -8,10 +8,9 @@ $(() => {
   $page.append($tweetsDiv);
 
   // CREATE BUTTON
-
-  // 1. Create the button element with the required ID
+  // create the button element
   const $button = $('<button id="new-tweets-button">Show New Tweets</button>');
-  // 2. Add the button to the page (e.g., at the top of the body or before the .tweets div)
+  // add the button to the page 
   $('.tweets').before($button);
 
   // NEW TWEETS FUNCTION
@@ -49,10 +48,6 @@ $(() => {
 
   // ACTION TO ADD BUTTON FUNCTIONALITY
   $button.on('click', newTweet);
-
-
-
-
 
   // TIPS:
   // YOU WILL NEED TO PUT NEW TWEETS ON TO THE PAGE EITHER WITH A BUTTON
