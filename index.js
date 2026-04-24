@@ -155,15 +155,15 @@ $(() => {
       $commentButton.on('click', function() {
         $containComments.show();
         const user = currentUser;
-        // 1. Get the text from the input field
+        // get the text from the input field
         const commentText = `@${user}: ` + $commentInput.val(); // trying to make this take into account my user value, not the present tweet
-        // 2. Only proceed if the input isn't empty
+        // only proceed if the input isn't empty
         if (commentText.trim() !== "") {
-        // 3. Create a new div for the comment
+        // create a new div for the comment
           const $newComment = $('<div class="comment"></div>').text(commentText);
-          // 4. Add the new comment to your container
+          // add the new comment to container
           $containComments.append($newComment);
-          // 5. Clear the input field for the next comment
+          // clear the input field
           $commentInput.val('');
         }
 
@@ -191,7 +191,7 @@ $(() => {
         '-webkit-backdrop-filter': 'blur(50px)',       // Safari support
         'border': '.5px solid rgb(0, 0, 0)', // Thin "glass" edge
         'border-radius': '20px',                       // Rounded corners
-        'box-shadow': 'inset 0 0 50px #110303', // an internal box shadow because we are really cool
+        'box-shadow': 'inset 0 0 50px #1a0705', // an internal box shadow because we are really cool
         'width': '80%',
         'margin': '10px auto',      // Reduced margin to take up less vertical space
         'padding': '10px 15px',     // Added shorthand padding to shrink the internal "air"
@@ -372,7 +372,6 @@ $(() => {
       'border': '1px solid #bba252', // Thin "glass" edge
       'color': '#F5F0E6',
       'font-family': "'Montserrat', sans-serif",
-      'font-weight': 'bold',
       'padding-bottom': '10px',
       'padding-right': '20px',
       'box-shadow': 'inset 0 0 40px #20201f', // an internal box shadow because we are really cool
@@ -597,7 +596,7 @@ $(() => {
   const addUfoFeed = function() {
     // create an iframe to host the feed
     const feed = `
-    <div id="mystery-feed-wrapper" style="position: absolute; top: 380px; left: 30px; width: 400px; z-index: 1000;">
+    <div id="mystery-feed-wrapper" style="position: absolute; text-align: center; top: 380px; left: 30px; width: 400px; z-index: 1000;">
         <h3 style="font-size: 14px; color: #BBA252; margin-bottom: 5px;">UFO_SIGHTING_LOGS:</h3>
         <iframe
             src="https://nuforc.org"
@@ -614,6 +613,50 @@ $(() => {
   addUfoFeed();
 
   ///////////////////////////////////////////////////////////
+
+  // I LOVE MY FEED BUT I SAY WITH REGRET THAT THE PAGE IS NOW LOPSIDED.
+  // AT ALL COSTS THIS MUST BE CORRECTED
+  // I'M THINKING WE GO THE IMAGE CONTAINER ROUTE, I'M THINKING CRYPTIDS,
+  // MAYHAPS A NICE LITTLE CLICKABLE SLIDE SHOW OF ROYALTY FREE IMAGES?
+  const addCryptidContainer = function() {
+    const images = [
+      "https://i.postimg.cc/Bn8GLWzD/headcount-coffee-sumatra-p-1.webp",
+      "https://i.postimg.cc/5NTQRb1k/stock-mothman.webp",
+      "https://i.postimg.cc/cC23NSqB/6518e6a8-63b3-4c43-b5f8-7f668960b788.png",
+      "https://i.postimg.cc/2SF10v5T/nessie-stock.jpg",
+      "https://i.postimg.cc/kMBT6NJf/houstan-batman-stock.jpg",
+      "https://i.postimg.cc/Dzxcm0t7/rougarou-stock.jpg",
+      "https://i.postimg.cc/ZYGxW1D6/wandiego-stock.jpg"
+    ];
+
+    let currentIndex = 0;
+
+    const cryptidContain = `
+    <div id="cryptid-wrapper" class="cryptid-container" style="position: absolute; top: 380px; right: 30px; width: 430px; z-index: 1000; cursor: pointer;">
+      <h3 style="font-size: 14px; color: #BBA252; text-align: center; margin-bottom: 5px;">CRYPTIDS: DO_THEY_WALK_AMONG_US?</h3>
+      <img id="image-cryptid" src="${images[0]}" style="width: 100%; height: 420px; border: 1px solid #BBA252; background: #fff; border-radius: 10px;">
+    </div>`;
+
+    $("#all-contents").append(cryptidContain);
+
+    $(".cryptid-container").on("click", function() {
+
+      currentIndex++;
+
+      // reset to 0 if we go past the end of the list
+      if (currentIndex >= images.length) {
+        currentIndex = 0;
+      }
+
+      // update the image
+      $("#image-cryptid").attr("src", images[currentIndex]);
+    });
+  };
+
+  addCryptidContainer();
+
+  //////////////////////////////////////////////////////////
+
   // STYLE SECTION
   // BODY
   $('body').css({
@@ -713,7 +756,7 @@ $(() => {
   $('.tweets')
     .css({
       'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgba(56, 45, 13, 0.28) 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
-      'border': '1px solid #111110bd', // Thin "glass" edge
+      'border': '1px solid #856e07bd', // Thin "glass" edge
       'padding-bottom': '10px',
       'padding-top': '40px',
       'padding-right': '20px',
@@ -726,7 +769,7 @@ $(() => {
       'margin': '10px auto',      // Reduced margin to take up less vertical space
       'margin-top': '50px',
       'width': '40%',             // Shrinks the horizontal width of the element
-      'box-shadow': 'inset 0 0 60px rgba(27, 4, 0, 0.9)',
+      'box-shadow': 'inset 0 0 60px rgb(7, 2, 1)',
       'font-style': 'italic' // This makes the text italic
     });
 
