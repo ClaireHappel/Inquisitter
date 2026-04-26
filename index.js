@@ -24,6 +24,10 @@ $(() => {
       const $message = $('<div class="message"></div>');
       $message.text(tweet.message);
 
+      // THIS IS MY NEW HASHTAG LOGIC, IT IS A DELICATE FLOWER
+      const linkedMessage = tweet.message.replace(/#(\w+)/g, '<span class="hashtag" style="color: #BBA252; cursor: pointer; text-decoration: underline;">#$1</span>');
+      $message.html(linkedMessage);
+
       // create a timestamp
       const $timestamp = $('<div class="timestamp"></div>');
       $timestamp.text(moment(tweet.created_at).format('MMMM Do YYYY, h:mm:ss a'));
@@ -596,11 +600,11 @@ $(() => {
   const addUfoFeed = function() {
     // create an iframe to host the feed
     const feed = `
-    <div id="mystery-feed-wrapper" style="position: absolute; text-align: center; top: 380px; left: 30px; width: 400px; z-index: 1000;">
+    <div id="mystery-feed-wrapper" style="position: absolute; text-align: center; top: 380px; left: 30px; width: 330px; z-index: 1000;">
         <h3 style="font-size: 14px; color: #BBA252; margin-bottom: 5px;">UFO_SIGHTING_LOGS:</h3>
         <iframe
             src="https://nuforc.org"
-            style="width: 100%; height: 620px; border: 1px solid #BBA252; background: #fff; border-radius: 10px;"
+            style="width: 100%; height: 590px; border: 1px solid #BBA252; background: #fff; border-radius: 10px;"
             title="UFO Feed">
         </iframe>
     </div>`;
@@ -618,6 +622,8 @@ $(() => {
   // AT ALL COSTS THIS MUST BE CORRECTED
   // I'M THINKING WE GO THE IMAGE CONTAINER ROUTE, I'M THINKING CRYPTIDS,
   // MAYHAPS A NICE LITTLE CLICKABLE SLIDE SHOW OF ROYALTY FREE IMAGES?
+
+  // CREATE A BIG OLD IMAGE CONTAINER FOR OUR CRYPTID PICS
   const addCryptidContainer = function() {
     const images = [
       "https://i.postimg.cc/Bn8GLWzD/headcount-coffee-sumatra-p-1.webp",
@@ -632,9 +638,9 @@ $(() => {
     let currentIndex = 0;
 
     const cryptidContain = `
-    <div id="cryptid-wrapper" class="cryptid-container" style="position: absolute; top: 380px; right: 30px; width: 430px; z-index: 1000; cursor: pointer;">
+    <div id="cryptid-wrapper" class="cryptid-container" style="position: absolute; top: 380px; right: 30px; width: 330px; z-index: 1000; cursor: pointer;">
       <h3 style="font-size: 14px; color: #BBA252; text-align: center; margin-bottom: 5px;">CRYPTIDS: DO_THEY_WALK_AMONG_US?</h3>
-      <img id="image-cryptid" src="${images[0]}" style="width: 100%; height: 420px; border: 1px solid #BBA252; background: #fff; border-radius: 10px;">
+      <img id="image-cryptid" src="${images[0]}" style="width: 100%; height: 320px; border: 1px solid #BBA252; background: #fff; border-radius: 10px;">
     </div>`;
 
     $("#all-contents").append(cryptidContain);
@@ -655,9 +661,122 @@ $(() => {
 
   addCryptidContainer();
 
-  //////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////
 
-  // STYLE SECTION
+  // CREATE HASHTAGS THAT WHEN CLICKED DISPLAY ALL TWEETS WITH THAT HASHTAG
+
+  const filterByHashtag = function(tag) {
+    // clear dem feeds
+    $tweetsContainer.empty();
+    // show dat home button
+    $homeButton.show();
+
+    // filter existing stream for messages containing the tag
+    const taggedTweets = streams.home.filter(tweet => tweet.message.includes(tag)).reverse();
+
+    // recreating the logic of my tweets again
+    const $tagTimeline = taggedTweets.map((tweet) => {
+      const $tweet = $('<div class="tweet"></div>');
+      const $user = $('<div class="username"></div>').text(`@${tweet.user}: `);
+      const $mess = $('<div class="message"></div>').text(tweet.message);
+      const $time = $('<div class="timestamp"></div>').text(moment(tweet.created_at).format('MMMM Do YYYY, h:mm:ss a'));
+      const $frien = $('<div class="humanFriendlyTimestamp"></div>').text(`(${moment(tweet.created_at).fromNow()})`);
+      return $tweet.append($user, $mess, $time, $frien);
+    });
+
+    $tweetsContainer.append($tagTimeline);
+
+    // TRIGGER ALL OF THE CSS
+    $('.tweet').css({
+      'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgba(18,18,18,1) 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
+      'background-size': '1000px',
+      'background-repeat': 'repeat',
+      'color': '#F5F0E6',
+      'font-family': "'Montserrat', sans-serif",
+      'font-weight': '300', // Lighter weight looks more elegant
+      'letter-spacing': '1px', // Slight spacing adds a "boutique" feel
+      'text-shadow': '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000',
+      'backdrop-filter': 'blur(10px)',               // The glass blur
+      '-webkit-backdrop-filter': 'blur(50px)',       // Safari support
+      'border': '.5px solid rgb(0, 0, 0)', // Thin "glass" edge
+      'border-radius': '20px',                       // Rounded corners
+      'box-shadow': 'inset 0 0 50px #0f0202', // an internal box shadow because we are really cool
+      'width': '85%',
+      'margin': '10px auto',      // Reduced margin to take up less vertical space
+      'padding': '10px 15px',     // Added shorthand padding to shrink the internal "air"
+      'transition': 'transform 0.3s ease-out'
+    });
+
+    // FOR TWEET USERNAME
+    $('.username').css({
+      'font-weight': 'bold',
+      'color': 'rgb(184, 162, 89)', // Matching your "glass" edge color
+      'margin-top': '5px',
+      'margin-left': '10px',
+      'font-size': '1 rem'
+    });
+
+    // FOR TWEET MESSAGE
+    $('.message').css({
+      'line-height': '1.4',
+      'margin-bottom': '8px',
+      'margin-top': '13px',
+      'margin-left': '10px',
+      'padding': '10px 15px',
+      'border-radius': '20px',
+      'background-size': '350px',
+      'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgba(18,18,18,0) 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
+      'box-shadow': 'inset 0 0 50px #030303', // an internal box shadow because we are really cool
+      'color': '#ffffff' // Pure white for high contrast
+    });
+
+    // FOR TWEET TIMES
+    $('.humanFriendlyTimestamp').css({
+      'font-size': '0.65rem',
+      'display': 'inline-block',
+      'text-align': 'right',
+      'color': 'rgba(255, 255, 255, 0.5)', // Dimmed out
+      'margin-left': '5px'
+    });
+
+    $('.timestamp').css({
+      'font-size': '0.65rem',
+      'display': 'inline-block',
+      'margin-left': '10px',
+      'text-align': 'right',
+      'color': 'rgba(255, 255, 255, 0.5)', // Dimmed out
+    });
+
+    $homeButton.css({
+      'margin-top': '13px',
+      'margin-left': '1350px',
+      'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgba(18,18,18, .6) 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
+      'background-size': '300px',
+      'background-repeat': 'repeat',
+      'color': '#F5F0E6',
+      'font-family': "'Montserrat', sans-serif",
+      'font-weight': '100', // lighter weight looks more elegant
+      'letter-spacing': '1px', // slight spacing
+      'text-shadow': '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000',
+      'backdrop-filter': 'blur(50px)',               // The glass blur
+      '-webkit-backdrop-filter': 'blur(50px)',       // safari support
+      'box-shadow': 'inset 0 0 20px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
+      'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
+      'border-radius': '18px',                       // Rounded corners
+      'width': '15%',
+      'padding': '15px 10px',     // Added shorthand padding to shrink the internal "air"
+    });
+  };
+
+  // using 'body' as the listener so this whole nonsense works $tweetsContainer.empty()
+  $('body').on('click', '.hashtag', function(e) {
+    e.preventDefault();
+    const clickedTag = $(this).text();
+    filterByHashtag(clickedTag);
+  });
+
+  //////////////////////////////////////////////////////////
+  // MAIN STYLE SECTION
   // BODY
   $('body').css({
     'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgba(18,18,18, 0.6) 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
