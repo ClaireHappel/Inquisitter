@@ -69,7 +69,7 @@ $(() => {
           'width': 'auto',
           'max-width': '80vw',      // Keeps it from bleeding off the sides
           'margin': '20px auto',    // Centers it and uses smaller margins for mobile
-          'transform': 'translateY(10vh)',
+          'transform': 'translate(40vw, 15vh)',
         });
         // clear feed
         $tweetsContainer.empty();
@@ -340,7 +340,7 @@ $(document).ready(function() {
 
   // create something as a bonus that rotates randomly between placeholder inputs
   const randomPlaceholder = () => {
-    const placesToHold = ["Oh wanderer, confess to me your strife...", "Tell me your secrets...", "Reveal the mysteries of your mind...", "It is only through mystery and madness that the soul is revealed. -Thomas Moore", "For me, time is the greatest mystery of all. -Anthony Hopkins", "Here there be monsters...", "The most beautiful thing we can experience is the mysterious. -Albert Einstein"];
+    const placesToHold = ["Oh wanderer, confess to me your strife...", "Tell me your secrets...", "Reveal the mysteries of your mind...", "Only through mystery and madness is the soul revealed.", "For me, time is the greatest mystery of all. -Anthony Hopkins", "Here there be monsters...", "The most beautiful thing we can experience is the mysterious."];
     const getRandom = arr => arr[Math.floor(Math.random() * arr.length)];
     return getRandom(placesToHold);
   };
@@ -598,7 +598,7 @@ const addMyTitle = function() {
         max-width: 100%; 
         overflow: hidden; 
       ">
-        𓁝 𓁀 Inquisitter 𓁁 𓅈
+        𓁝𓁀 Inquisitter 𓁁𓅈
       </h1>
     </div>`;
 
@@ -789,7 +789,7 @@ const addUfoFeed = function() {
       'width': 'auto',
       'max-width': '80vw',      // Keeps it from bleeding off the sides
       'margin': '20px auto',    // Centers it and uses smaller margins for mobile
-      'transform': 'translateY(10vh)',
+      'transform': 'translate(40vw, 15vh)',
     });
   };
 
@@ -835,8 +835,9 @@ const addUfoFeed = function() {
     'width': 'auto',
     'max-width': '80vw',      // Keeps it from bleeding off the sides
     'margin': '20px auto',    // Centers it and uses smaller margins for mobile
-    'transform': 'translateY(10vh)',
-    'font-style': 'italic'// This makes the text italic
+    'font-style': 'italic', // This makes the text italic
+    'margin': '20px auto', // Keeps it centered if the parent container allows
+    'transform': 'translate(30vw, 6vh)', // Moves it 25% of the screen width to the right
   });
   // FOR MESSAGE INPUT
   $tweetInput.css({
@@ -852,10 +853,10 @@ const addUfoFeed = function() {
     'border-top-right-radius': '20px',
     'border-bottom-right-radius': '20px',
     'padding': '10px 15px',     // Added shorthand padding to shrink the internal "air"
-    'width': 'auto',
+    'width': '26%',
     'max-width': '80vw',      // Keeps it from bleeding off the sides
-    'margin': '20px auto',    // Centers it and uses smaller margins for mobile
-    'transform': 'translateY(10vh)',
+     'margin': '20px auto', // Keeps it centered if the parent container allows
+    'transform': 'translate(30vw, 6vh)',
     'font-style': 'italic' // This makes the text italic
   });
 
@@ -880,7 +881,7 @@ const addUfoFeed = function() {
     'width': 'auto',
     'max-width': '80vw',      // Keeps it from bleeding off the sides
     'margin': '20px auto',    // Centers it and uses smaller margins for mobile
-    'transform': 'translateY(10vh)',
+    'transform': 'translate(30vw, 6vh)',
   });
 
   // FOR NEW TWEETS BUTTON:
@@ -898,13 +899,12 @@ const addUfoFeed = function() {
     'box-shadow': 'inset 0 0 0px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
     'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
     'border-radius': '18px',                       // Rounded corners
-    'margin': '10px auto',      // Reduced margin to take up less vertical space
-    'margin-left': '15px',
+    'margin-right': '15px',
     'padding': '15px 10px',     // Added shorthand padding to shrink the intern
-    'width': 'auto',
+    'width': '15%',
     'max-width': '80vw',      // Keeps it from bleeding off the sides
     'margin': '20px auto',    // Centers it and uses smaller margins for mobile
-    'transform': 'translateY(10vh)',
+    'transform': 'translate(0vw, 15vh)',
   });
 
   // FOR .TWEETS
@@ -926,7 +926,7 @@ const addUfoFeed = function() {
       'box-shadow': 'inset 0 0 60px rgb(7, 2, 1)',
       'font-style': 'italic', // This makes the text italic
       'position': 'absolute',
-      'top': '45%',
+      'top': '65%',
       'margin-top': '-10px', 
       'right': '33%',
       'z-index': '1500',
