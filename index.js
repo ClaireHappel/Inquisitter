@@ -562,43 +562,47 @@ $(() => {
   });
 
   // CREATE A HEADER/TITLE THAT EVERYTHING IS BENEATH
-  const addMyTitle = function() {
-    //  Inquisitter: A Twitter Clone That Questions Everything
-    const title = `
- <div id="main-header-container" style="
-            position: absolute;
-            top: 30px;
-            width: 100%;
-            text-align: center;
-            z-index: 2000;
-        ">
-            <h1 style="
-                color: #BBA252;
-                font-family: 'Montserrat', sans-serif;
-                font-size: 6vw;
-                font-weight: 900;
-                text-transform: uppercase;
-                letter-spacing: 25px; /* Spread out letters for dramatic effect */
-                margin: 0;
-                padding-left: 25px; /* offset the last letter's spacing to keep it centered */
-            ">
-            𓁝 𓁀 Inquisitter 𓁁 𓅈
+const addMyTitle = function() {
+  // Inquisitter: A Twitter Clone That Questions Everything
+  // Fixed using position: relative so it pushes other content down instead of covering it.
+  const title = `
+    <div id="main-header-container" style="
+      position: relative; 
+      padding-top: 30px; 
+      margin-bottom: 20px; 
+      width: 100%; 
+      text-align: center; 
+      z-index: 2000;
+    ">
+      <h1 style="
+        color: #BBA252;
+        font-family: 'Montserrat', sans-serif;
+        font-size: clamp(2rem, 6vw, 5rem); /* Keeps text from getting too huge on desktops */
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 25px;
+        margin: 0;
+        padding-left: 25px;
+        white-space: nowrap;
+        max-width: 100%;
+        overflow: hidden;
+      ">
+        𓁝 𓁀 Inquisitter 𓁁 𓅈
+      </h1>
+    </div>`;
 
-        </h1>`;
-
-    // Append to all contents
-    $('#all-contents').append(title);
-    // append to all contents
-  };
+  // Append to all contents
+  $('#all-contents').prepend(title); // Use .prepend() to ensure it is the very first item
+};
   // call our function and our title in all of it's
   addMyTitle();
 
   ////////////////////////////////////////////////////////////
 
 const addUfoFeed = function() {
-  
+// live feed broke so I made something that still looks snazy
  const feed = `
-    <div id="mystery-feed-wrapper" style="position: absolute; text-align: center; top: 380px; left: 30px; width: 330px; z-index: 1000;">
+    <div id="mystery-feed-wrapper" style="position: absolute; text-align: center; top: 660px; left: 30px; width: 330px; z-index: 1000;">
         <h3 style="font-size: 14px; color: #BBA252; margin-bottom: 5px;">UFO_SIGHTING_LOGS:</h3>
         <div style="width: 100%; height: 600px; border: 1px solid #BBA252; background: url('https://i.postimg.cc/bJqNFzSV/image-531806d1.png') no-repeat center center; background-size: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center; padding: 20px;">
             <a href="https://nuforc.org" target="_blank" style="color: #fff; text-decoration: none; font-family: monospace; font-size: 12px; border: 1px solid #BBA252; padding: 10px 20px; border-radius: 5px; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(2px);">
@@ -638,12 +642,19 @@ const addUfoFeed = function() {
     let currentIndex = 0;
 
     const cryptidContain = `
-    <div id="cryptid-wrapper" class="cryptid-container" style="position: absolute; top: 380px; right: 30px; width: 330px; z-index: 1000; cursor: pointer;">
-      <h3 style="font-size: 14px; color: #BBA252; text-align: center; margin-bottom: 5px;">CRYPTIDS: DO_THEY_WALK_AMONG_US?</h3>
-      <img id="image-cryptid" src="${images[0]}" style="width: 100%; height: 320px; border: 1px solid #BBA252; background: #fff; border-radius: 10px;">
-    </div>`;
+  <div id="cryptid-wrapper" class="cryptid-container" style="
+    position: relative; 
+    float: right; 
+    margin-top: 650px; 
+    margin-right: 30px; 
+    width: 330px; 
+    z-index: 1000; 
+    cursor: pointer;"> 
+    <h3 style="font-size: 14px; color: #BBA252; text-align: center; margin-bottom: 5px;">CRYPTIDS: DO_THEY_WALK_AMONG_US?</h3> 
+    <img id="image-cryptid" src="${images[0]}" style="width: 100%; height: 320px; border: 1px solid #BBA252; background: #fff; border-radius: 10px;"> 
+</div>`;
 
-    $("#all-contents").append(cryptidContain);
+    $("#all-contents").prepend(cryptidContain);
 
     $(".cryptid-container").on("click", function() {
 
@@ -806,7 +817,7 @@ const addUfoFeed = function() {
     'border-bottom-left-radius': '20px',
     'margin-left': '40px',      // Reduced margin to take up less vertical space
     'padding': '10px 15px',     // Added shorthand padding to shrink the internal "air"
-    'margin-top': '230px',
+    'margin-top': '130px',
     'width': '10%',             // Shrinks the horizontal width of the element
     'font-style': 'italic' // This makes the text italic
   });
@@ -851,6 +862,8 @@ const addUfoFeed = function() {
 
   // FOR NEW TWEETS BUTTON:
   $('#new-tweets-button').css({
+    'position': 'absolute',
+    'top': '282px',
     'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgba(18,18,18, .6) 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
     'background-size': '400px',
     'background-repeat': 'repeat',
@@ -865,10 +878,14 @@ const addUfoFeed = function() {
     'box-shadow': 'inset 0 0 20px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
     'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
     'border-radius': '18px',                       // Rounded corners
-    'width': '15%',
+    'width': '11%',
     'margin': '10px auto',      // Reduced margin to take up less vertical space
-    'margin-left': '15px',
-    'padding': '15px 10px'    // Added shorthand padding to shrink the internal "air"
+    'margin-left': '5px',
+    'padding': '15px 10px',    // Added shorthand padding to shrink the internal "air"
+    'display': 'inline-block', // Allows it to sit next to other elements
+    'vertical-align': 'middle', // Keeps it aligned with adjacent text/icons   
+    'flex-shrink': '0',        // Prevents the button from being squashed
+    'white-space': 'nowrap',   // Prevents the button text from wrapping
   });
 
   // FOR .TWEETS
@@ -886,7 +903,7 @@ const addUfoFeed = function() {
       '-webkit-backdrop-filter': 'blur(50px)',       // Safari support
       'border-radius': '20px',                       // Rounded corners
       'margin': '10px auto',      // Reduced margin to take up less vertical space
-      'margin-top': '50px',
+      'margin-top': '150px',
       'width': '40%',             // Shrinks the horizontal width of the element
       'box-shadow': 'inset 0 0 60px rgb(7, 2, 1)',
       'font-style': 'italic' // This makes the text italic
