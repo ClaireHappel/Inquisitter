@@ -66,6 +66,10 @@ $(() => {
           'border-radius': '18px',                       // Rounded corners
           'width': '15%',
           'padding': '15px 10px',     // Added shorthand padding to shrink the internal "air"
+          'width': 'auto',
+          'max-width': '80vw',      // Keeps it from bleeding off the sides
+          'margin': '20px auto',    // Centers it and uses smaller margins for mobile
+          'transform': 'translateY(10vh)',
         });
         // clear feed
         $tweetsContainer.empty();
@@ -224,7 +228,6 @@ $(() => {
   const $newTweetsButton = $('<button id="new-tweets-button">New Posts</button>');
   // add the button to the page
 $(document).ready(function() {
-    // Put your input creation and injection code here
     $('#main-header-container').after($newTweetsButton);
 });
  
@@ -481,7 +484,10 @@ $(document).ready(function() {
 
   // CREATE A HOME BUTTON TO GET OUT OF A USER'S FEED:
   const $homeButton = $('<button class="home-button">Home</button>').hide();
-  $tweetsContainer.before($homeButton);
+  $(document).ready(function() {
+    $('#main-header-container').after($homeButton);
+});
+  
   // home button will disappear after being clicked, so it does not mess with the main feed
   $homeButton.on('click', function() {
     newTweet();
@@ -607,10 +613,10 @@ const addMyTitle = function() {
 const addUfoFeed = function() {
 // live feed broke so I made something that still looks snazy
  const feed = `
-    <div id="mystery-feed-wrapper" style="position: relative; text-align: center; margin-top: 40vh; max-width: 15%; z-index: 1000;">
-        <h3 style="font-size: 14px; color: #BBA252; margin-bottom: 5px;">UFO_SIGHTING_LOGS:</h3>
-        <div style="width: 100%; height: 600px; max-height: 70vh; border: 1px solid #BBA252; background: url('https://i.postimg.cc/bJqNFzSV/image-531806d1.png') no-repeat center center; background-size: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center; padding: 20px;">
-            <a href="https://nuforc.org" target="_blank" style="color: #fff; text-decoration: none; font-family: monospace; font-size: 12px; border: 1px solid #BBA252; padding: 10px 20px; border-radius: 5px; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(2px);">
+  <div id="mystery-feed-wrapper" style="position: relative; text-align: center; margin-top: 20vh; max-width: 20%; z-index: 1000;">
+   <h3 style="font-size: 14px; color: #BBA252; margin-bottom: 5px;">UFO_SIGHTING_LOGS:</h3>
+    <div style="width: 100%; height: 600px; max-height: 70vh; border: 1px solid #BBA252; background: url('https://i.postimg.cc/bJqNFzSV/image-531806d1.png') no-repeat center center; background-size: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center; padding: 20px;">
+    <a href="https://nuforc.org" target="_blank" style="color: #fff; text-decoration: none; font-family: monospace; font-size: 12px; border: 1px solid #BBA252; padding: 10px 20px; border-radius: 5px; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(2px);">
                 [ ACCESS_LIVE_DATABANK ]
             </a>
         </div>
@@ -650,12 +656,12 @@ const addUfoFeed = function() {
   <div id="cryptid-wrapper" class="cryptid-container" style="
     position: relative; 
     float: right; 
-    margin-top: 85vh; 
-    max-width: 18%; 
+    margin-top: 50vh; 
+    max-width: 25%; 
     z-index: 1000; 
     cursor: pointer;"> 
     <h3 style="font-size: 14px; color: #BBA252; text-align: center; margin-bottom: 5px;">CRYPTIDS: DO_THEY_WALK_AMONG_US?</h3> 
-    <img id="image-cryptid" src="${images[0]}" style="width: 100%; height: 320px; max-height: 70vh; border: 1px solid #BBA252; background: #fff; border-radius: 10px;"> 
+    <img id="image-cryptid" src="${images[0]}" style="width: 100%; height: 420px; max-height: 50vh; border: 1px solid #BBA252; background: #fff; border-radius: 10px;"> 
 </div>`;
 
     $("#all-contents").prepend(cryptidContain);
@@ -779,7 +785,11 @@ const addUfoFeed = function() {
       'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
       'border-radius': '18px',                       // Rounded corners
       'width': '15%',
-      'padding': '15px 10px'    // Added shorthand padding to shrink the internal "air"
+      'padding': '15px 10px',    // Added shorthand padding to shrink the internal "air"
+      'width': 'auto',
+      'max-width': '80vw',      // Keeps it from bleeding off the sides
+      'margin': '20px auto',    // Centers it and uses smaller margins for mobile
+      'transform': 'translateY(10vh)',
     });
   };
 
@@ -916,7 +926,7 @@ const addUfoFeed = function() {
       'box-shadow': 'inset 0 0 60px rgb(7, 2, 1)',
       'font-style': 'italic', // This makes the text italic
       'position': 'absolute',
-      'top': '80%',
+      'top': '45%',
       'margin-top': '-10px', 
       'right': '33%',
       'z-index': '1500',
