@@ -595,19 +595,19 @@ $(() => {
 
   ////////////////////////////////////////////////////////////
 
-  // SO I HAD A WILD IDEA TO CREATE A LIVE FEED AND APPARENTLY YOU CAN GET AROUND RESTRICTIONS INVOLVING CORS/COMB USING IFRAMES
-  // SPENT TOO MUCH TIME LEARNING ABOUT THIS, NO REGERTS (LOL)
-  const addUfoFeed = function() {
-    // create an iframe to host the feed
-    const feed = `
+const addUfoFeed = function() {
+  
+ const feed = `
     <div id="mystery-feed-wrapper" style="position: absolute; text-align: center; top: 380px; left: 30px; width: 330px; z-index: 1000;">
         <h3 style="font-size: 14px; color: #BBA252; margin-bottom: 5px;">UFO_SIGHTING_LOGS:</h3>
-        <iframe
-            src="https://nuforc.org"
-            style="width: 100%; height: 590px; border: 1px solid #BBA252; background: #fff; border-radius: 10px;"
-            title="UFO Feed">
-        </iframe>
+        <div style="width: 100%; height: 600px; border: 1px solid #BBA252; background: url('https://i.postimg.cc/bJqNFzSV/image-531806d1.png') no-repeat center center; background-size: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center; padding: 20px;">
+            <a href="https://nuforc.org" target="_blank" style="color: #fff; text-decoration: none; font-family: monospace; font-size: 12px; border: 1px solid #BBA252; padding: 10px 20px; border-radius: 5px; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(2px);">
+                [ ACCESS_LIVE_DATABANK ]
+            </a>
+        </div>
+        <p style="color: #666; font-size: 10px; margin-top: 8px;">External security prevents direct embedding. View logs at NUFORC.org</p>
     </div>`;
+
 
     // append to all contents
     $('#all-contents').append(feed);
