@@ -607,9 +607,9 @@ const addMyTitle = function() {
 const addUfoFeed = function() {
 // live feed broke so I made something that still looks snazy
  const feed = `
-    <div id="mystery-feed-wrapper" style="position: relative; text-align: center; top: 340px; left: 30px; width: 330px; z-index: 1000;">
+    <div id="mystery-feed-wrapper" style="position: relative; text-align: center; margin-top: 40vh; max-width: 15%; z-index: 1000;">
         <h3 style="font-size: 14px; color: #BBA252; margin-bottom: 5px;">UFO_SIGHTING_LOGS:</h3>
-        <div style="width: 100%; height: 600px; border: 1px solid #BBA252; background: url('https://i.postimg.cc/bJqNFzSV/image-531806d1.png') no-repeat center center; background-size: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center; padding: 20px;">
+        <div style="width: 100%; height: 600px; max-height: 70vh; border: 1px solid #BBA252; background: url('https://i.postimg.cc/bJqNFzSV/image-531806d1.png') no-repeat center center; background-size: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center; padding: 20px;">
             <a href="https://nuforc.org" target="_blank" style="color: #fff; text-decoration: none; font-family: monospace; font-size: 12px; border: 1px solid #BBA252; padding: 10px 20px; border-radius: 5px; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(2px);">
                 [ ACCESS_LIVE_DATABANK ]
             </a>
@@ -650,13 +650,12 @@ const addUfoFeed = function() {
   <div id="cryptid-wrapper" class="cryptid-container" style="
     position: relative; 
     float: right; 
-    margin-top: 550px; 
-    margin-right: 30px; 
-    width: 330px; 
+    margin-top: 85vh; 
+    max-width: 18%; 
     z-index: 1000; 
     cursor: pointer;"> 
     <h3 style="font-size: 14px; color: #BBA252; text-align: center; margin-bottom: 5px;">CRYPTIDS: DO_THEY_WALK_AMONG_US?</h3> 
-    <img id="image-cryptid" src="${images[0]}" style="width: 100%; height: 320px; border: 1px solid #BBA252; background: #fff; border-radius: 10px;"> 
+    <img id="image-cryptid" src="${images[0]}" style="width: 100%; height: 320px; max-height: 70vh; border: 1px solid #BBA252; background: #fff; border-radius: 10px;"> 
 </div>`;
 
     $("#all-contents").prepend(cryptidContain);
@@ -823,8 +822,10 @@ const addUfoFeed = function() {
     'margin-left': '40px',      // Reduced margin to take up less vertical space
     'padding': '10px 15px',     // Added shorthand padding to shrink the internal "air"
     'margin-bottom': '40px',
-    'width': 'auto',             // Shrinks the horizontal width of the element
-    'transform': 'translateY(350%)',
+    'width': 'auto',
+    'max-width': '80vw',      // Keeps it from bleeding off the sides
+    'margin': '20px auto',    // Centers it and uses smaller margins for mobile
+    'transform': 'translateY(10vh)',
     'font-style': 'italic'// This makes the text italic
   });
   // FOR MESSAGE INPUT
@@ -841,9 +842,10 @@ const addUfoFeed = function() {
     'border-top-right-radius': '20px',
     'border-bottom-right-radius': '20px',
     'padding': '10px 15px',     // Added shorthand padding to shrink the internal "air"
-    'max-width': '40%',
-    'text-wrap': 'balance',
-    'transform': 'translateY(350%)',
+    'width': 'auto',
+    'max-width': '80vw',      // Keeps it from bleeding off the sides
+    'margin': '20px auto',    // Centers it and uses smaller margins for mobile
+    'transform': 'translateY(10vh)',
     'font-style': 'italic' // This makes the text italic
   });
 
@@ -862,11 +864,13 @@ const addUfoFeed = function() {
     'box-shadow': 'inset 0 0 0px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
     'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
     'border-radius': '18px',                       // Rounded corners
-    'width': '8%',
     'margin': '10px auto',      // Reduced margin to take up less vertical space
     'margin-left': '15px',
     'padding': '15px 10px',     // Added shorthand padding to shrink the internal "air"
-    'transform': 'translateY(290%)',
+    'width': 'auto',
+    'max-width': '80vw',      // Keeps it from bleeding off the sides
+    'margin': '20px auto',    // Centers it and uses smaller margins for mobile
+    'transform': 'translateY(10vh)',
   });
 
   // FOR NEW TWEETS BUTTON:
@@ -884,11 +888,13 @@ const addUfoFeed = function() {
     'box-shadow': 'inset 0 0 0px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
     'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
     'border-radius': '18px',                       // Rounded corners
-    'width': '8%',
     'margin': '10px auto',      // Reduced margin to take up less vertical space
     'margin-left': '15px',
     'padding': '15px 10px',     // Added shorthand padding to shrink the intern
-    'transform': 'translateY(290%)',
+    'width': 'auto',
+    'max-width': '80vw',      // Keeps it from bleeding off the sides
+    'margin': '20px auto',    // Centers it and uses smaller margins for mobile
+    'transform': 'translateY(10vh)',
   });
 
   // FOR .TWEETS
