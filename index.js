@@ -578,14 +578,14 @@ const addMyTitle = function() {
         color: #BBA252;
         font-family: 'Montserrat', sans-serif;
         font-size: clamp(2rem, 6vw, 5rem); /* Keeps text from getting too huge on desktops */
-        font-weight: 400;
+        font-weight: 900;
         text-transform: uppercase;
         letter-spacing: 25px;
         margin: 0;
         padding-left: 25px;
-        white-space: nowrap;
-        max-width: 100%;
-        overflow: hidden;
+        white-space: nowrap; 
+        max-width: 100%; 
+        overflow: hidden; 
       ">
         𓁝 𓁀 Inquisitter 𓁁 𓅈
       </h1>
@@ -862,8 +862,6 @@ const addUfoFeed = function() {
 
   // FOR NEW TWEETS BUTTON:
   $('#new-tweets-button').css({
-    'position': 'absolute',
-    'top': '282px',
     'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgba(18,18,18, .6) 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
     'background-size': '400px',
     'background-repeat': 'repeat',
@@ -881,11 +879,7 @@ const addUfoFeed = function() {
     'width': '11%',
     'margin': '10px auto',      // Reduced margin to take up less vertical space
     'margin-left': '5px',
-    'padding': '15px 10px',    // Added shorthand padding to shrink the internal "air"
-    'display': 'inline-block', // Allows it to sit next to other elements
-    'vertical-align': 'middle', // Keeps it aligned with adjacent text/icons   
-    'flex-shrink': '0',        // Prevents the button from being squashed
-    'white-space': 'nowrap',   // Prevents the button text from wrapping
+    'padding': '15px 10px'    // Added shorthand padding to shrink the internal "air"
   });
 
   // FOR .TWEETS
