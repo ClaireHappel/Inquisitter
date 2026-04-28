@@ -759,7 +759,7 @@ const addUfoFeed = function() {
       'display': 'inline-block',
       'margin-left': '10px',
       'text-align': 'right',
-      'color': 'rgba(255, 255, 255, 0.5)', // Dimmed out
+      'color': 'rgba(255, 255, 255, 0.5)'// Dimmed out
     });
 
     $homeButton.css({
@@ -779,7 +779,7 @@ const addUfoFeed = function() {
       'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
       'border-radius': '18px',                       // Rounded corners
       'width': '15%',
-      'padding': '15px 10px',     // Added shorthand padding to shrink the internal "air"
+      'padding': '15px 10px'    // Added shorthand padding to shrink the internal "air"
     });
   };
 
