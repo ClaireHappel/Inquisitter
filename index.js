@@ -221,9 +221,13 @@ $(() => {
   // CREATE SHOW NEW POSTS BUTTON TO SHOW ALL TWEETS:
 
   // create the new tweetsbutton element
-  const $newTweetsButton = $('<button id="new-tweets-button">Show New Posts</button>');
+  const $newTweetsButton = $('<button id="new-tweets-button">New Posts</button>');
   // add the button to the page
-  $tweetsContainer.before($newTweetsButton);
+$(document).ready(function() {
+    // Put your input creation and injection code here
+    $('#main-header-container').after($newTweetsButton);
+});
+ 
   // action to add button functionality
   $newTweetsButton.on('click', function() {
     newTweet();
@@ -348,7 +352,11 @@ $(() => {
   // change it at a sane amount of time to not annoy anyone
   setInterval(rotatePlaceholder, 9000);
   // adding the inputs to the page
-  $('#new-tweets-button').before($usernameInput, $tweetInput, $tweetButton);
+  $(document).ready(function() {
+    // Put your input creation and injection code here
+    $('#main-header-container').after($usernameInput, $tweetInput, $tweetButton);
+});
+
 
   // input functionality
   $tweetButton.on('click', function() {
@@ -568,22 +576,19 @@ const addMyTitle = function() {
   const title = `
     <div id="main-header-container" style="
       position: relative; 
-      padding-top: 30px; 
-      margin-bottom: 20px; 
-      width: 100%; 
       text-align: center; 
-      z-index: 2000;
+      height: auto !important; 
+      position: relative !important; 
+      margin-bottom: 0 !important;
+      padding-bottom: 10px !important;
     ">
       <h1 style="
         color: #BBA252;
         font-family: 'Montserrat', sans-serif;
         font-size: clamp(2rem, 6vw, 5rem); /* Keeps text from getting too huge on desktops */
-        font-weight: 900;
+        font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 25px;
-        margin: 0;
-        padding-left: 25px;
-        white-space: nowrap; 
+        letter-spacing: clamp(5px, 2vw, 25px); margin: 0; padding-left: 1px; white-space: normal;
         max-width: 100%; 
         overflow: hidden; 
       ">
@@ -602,7 +607,7 @@ const addMyTitle = function() {
 const addUfoFeed = function() {
 // live feed broke so I made something that still looks snazy
  const feed = `
-    <div id="mystery-feed-wrapper" style="position: absolute; text-align: center; top: 660px; left: 30px; width: 330px; z-index: 1000;">
+    <div id="mystery-feed-wrapper" style="position: relative; text-align: center; top: 340px; left: 30px; width: 330px; z-index: 1000;">
         <h3 style="font-size: 14px; color: #BBA252; margin-bottom: 5px;">UFO_SIGHTING_LOGS:</h3>
         <div style="width: 100%; height: 600px; border: 1px solid #BBA252; background: url('https://i.postimg.cc/bJqNFzSV/image-531806d1.png') no-repeat center center; background-size: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center; padding: 20px;">
             <a href="https://nuforc.org" target="_blank" style="color: #fff; text-decoration: none; font-family: monospace; font-size: 12px; border: 1px solid #BBA252; padding: 10px 20px; border-radius: 5px; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(2px);">
@@ -613,8 +618,8 @@ const addUfoFeed = function() {
     </div>`;
 
 
-    // append to all contents
-    $('#all-contents').append(feed);
+    // append after header container
+   $(feed).insertAfter('#main-header-container');
   };
 
   // Call the function
@@ -645,7 +650,7 @@ const addUfoFeed = function() {
   <div id="cryptid-wrapper" class="cryptid-container" style="
     position: relative; 
     float: right; 
-    margin-top: 650px; 
+    margin-top: 550px; 
     margin-right: 30px; 
     width: 330px; 
     z-index: 1000; 
@@ -715,7 +720,7 @@ const addUfoFeed = function() {
       'width': '85%',
       'margin': '10px auto',      // Reduced margin to take up less vertical space
       'padding': '10px 15px',     // Added shorthand padding to shrink the internal "air"
-      'transition': 'transform 0.3s ease-out'
+      'transition': 'transform 0.3s ease-out',
     });
 
     // FOR TWEET USERNAME
@@ -803,7 +808,7 @@ const addUfoFeed = function() {
   });
 
   // FOR USERNAME INPUT
-  $('#username-input').css({
+  $usernameInput.css({
     'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgba(122, 97, 13, 0.6) 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
     'border': '1px solid #bba252', // Thin "glass" edge
     'color': '#F5F0E6',
@@ -817,12 +822,13 @@ const addUfoFeed = function() {
     'border-bottom-left-radius': '20px',
     'margin-left': '40px',      // Reduced margin to take up less vertical space
     'padding': '10px 15px',     // Added shorthand padding to shrink the internal "air"
-    'margin-top': '130px',
-    'width': '10%',             // Shrinks the horizontal width of the element
-    'font-style': 'italic' // This makes the text italic
+    'margin-bottom': '40px',
+    'width': 'auto',             // Shrinks the horizontal width of the element
+    'transform': 'translateY(350%)',
+    'font-style': 'italic'// This makes the text italic
   });
   // FOR MESSAGE INPUT
-  $('#message-input').css({
+  $tweetInput.css({
     'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgba(122, 97, 13, 0.6) 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
     'border': '1px solid #bba252', // Thin "glass" edge
     'color': '#F5F0E6',
@@ -835,12 +841,14 @@ const addUfoFeed = function() {
     'border-top-right-radius': '20px',
     'border-bottom-right-radius': '20px',
     'padding': '10px 15px',     // Added shorthand padding to shrink the internal "air"
-    'width': '40%',             // Shrinks the horizontal width of the element
+    'max-width': '40%',
+    'text-wrap': 'balance',
+    'transform': 'translateY(350%)',
     'font-style': 'italic' // This makes the text italic
   });
 
   // FOR POST BUTTON:
-  $('#post-button').css({
+  $tweetButton.css({
     'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgba(18,18,18, .6) 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
     'background-size': '300px',
     'background-repeat': 'repeat',
@@ -854,32 +862,33 @@ const addUfoFeed = function() {
     'box-shadow': 'inset 0 0 0px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
     'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
     'border-radius': '18px',                       // Rounded corners
-    'width': '15%',
+    'width': '8%',
     'margin': '10px auto',      // Reduced margin to take up less vertical space
     'margin-left': '15px',
     'padding': '15px 10px',     // Added shorthand padding to shrink the internal "air"
+    'transform': 'translateY(290%)',
   });
 
   // FOR NEW TWEETS BUTTON:
-  $('#new-tweets-button').css({
+  $newTweetsButton.css({
     'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgba(18,18,18, .6) 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
     'background-size': '400px',
     'background-repeat': 'repeat',
     'color': '#F5F0E6',
     'font-family': "'Montserrat', sans-serif",
     'font-weight': '100', // Lighter weight looks more elegant
-    'fontSize': '14px',
     'letter-spacing': '1px', // Slight spacing adds a "boutique" feel
     'text-shadow': '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000',
     'backdrop-filter': 'blur(50px)',               // The glass blur
     '-webkit-backdrop-filter': 'blur(50px)',       // Safari support
-    'box-shadow': 'inset 0 0 20px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
+    'box-shadow': 'inset 0 0 0px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
     'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
     'border-radius': '18px',                       // Rounded corners
-    'width': '11%',
+    'width': '8%',
     'margin': '10px auto',      // Reduced margin to take up less vertical space
-    'margin-left': '5px',
-    'padding': '15px 10px'    // Added shorthand padding to shrink the internal "air"
+    'margin-left': '15px',
+    'padding': '15px 10px',     // Added shorthand padding to shrink the intern
+    'transform': 'translateY(290%)',
   });
 
   // FOR .TWEETS
@@ -897,10 +906,14 @@ const addUfoFeed = function() {
       '-webkit-backdrop-filter': 'blur(50px)',       // Safari support
       'border-radius': '20px',                       // Rounded corners
       'margin': '10px auto',      // Reduced margin to take up less vertical space
-      'margin-top': '150px',
-      'width': '40%',             // Shrinks the horizontal width of the element
+      'width': '35%',
       'box-shadow': 'inset 0 0 60px rgb(7, 2, 1)',
-      'font-style': 'italic' // This makes the text italic
+      'font-style': 'italic', // This makes the text italic
+      'position': 'absolute',
+      'top': '80%',
+      'margin-top': '-10px', 
+      'right': '33%',
+      'z-index': '1500',
     });
 
   // FOR TWEET USERNAME
