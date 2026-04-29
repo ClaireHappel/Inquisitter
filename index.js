@@ -69,7 +69,7 @@ $(() => {
           'width': 'auto',
           'max-width': '80vw',      // Keeps it from bleeding off the sides
           'margin': '20px auto',    // Centers it and uses smaller margins for mobile
-          'transform': 'translate(40vw, 15vh)',
+          'transform': 'translate(29vw, 6vh)',
         });
         // clear feed
         $tweetsContainer.empty();
@@ -584,6 +584,8 @@ const addMyTitle = function() {
       position: relative; 
       text-align: center; 
       height: auto !important; 
+      justify-content: center;
+      align-items: center;
       position: relative !important; 
       margin-bottom: 0 !important;
       padding-bottom: 10px !important;
@@ -593,6 +595,7 @@ const addMyTitle = function() {
         font-family: 'Montserrat', sans-serif;
         font-size: clamp(2rem, 6vw, 5rem); /* Keeps text from getting too huge on desktops */
         font-weight: 700;
+        text-align: center;  
         text-transform: uppercase;
         letter-spacing: clamp(5px, 2vw, 25px); margin: 0; padding-left: 1px; white-space: normal;
         max-width: 100%; 
@@ -656,12 +659,12 @@ const addUfoFeed = function() {
   <div id="cryptid-wrapper" class="cryptid-container" style="
     position: relative; 
     float: right; 
-    margin-top: 50vh; 
+    margin-top: 60vh; 
     max-width: 25%; 
     z-index: 1000; 
     cursor: pointer;"> 
     <h3 style="font-size: 14px; color: #BBA252; text-align: center; margin-bottom: 5px;">CRYPTIDS: DO_THEY_WALK_AMONG_US?</h3> 
-    <img id="image-cryptid" src="${images[0]}" style="width: 100%; height: 420px; max-height: 50vh; border: 1px solid #BBA252; background: #fff; border-radius: 10px;"> 
+    <img id="image-cryptid" src="${images[0]}" style="width: 100%; height: 420px; max-height: 90vh; border: 1px solid #BBA252; background: #fff; border-radius: 10px;"> 
 </div>`;
 
     $("#all-contents").prepend(cryptidContain);
@@ -789,7 +792,7 @@ const addUfoFeed = function() {
       'width': 'auto',
       'max-width': '80vw',      // Keeps it from bleeding off the sides
       'margin': '20px auto',    // Centers it and uses smaller margins for mobile
-      'transform': 'translate(40vw, 15vh)',
+      'transform': 'translate(29vw, 6vh)',
     });
   };
 
@@ -901,10 +904,10 @@ const addUfoFeed = function() {
     'border-radius': '18px',                       // Rounded corners
     'margin-right': '15px',
     'padding': '15px 10px',     // Added shorthand padding to shrink the intern
-    'width': '15%',
+    'width': 'auto',
     'max-width': '80vw',      // Keeps it from bleeding off the sides
     'margin': '20px auto',    // Centers it and uses smaller margins for mobile
-    'transform': 'translate(0vw, 15vh)',
+    'transform': 'translate(30vw, 6vh)',
   });
 
   // FOR .TWEETS
@@ -926,7 +929,7 @@ const addUfoFeed = function() {
       'box-shadow': 'inset 0 0 60px rgb(7, 2, 1)',
       'font-style': 'italic', // This makes the text italic
       'position': 'absolute',
-      'top': '65%',
+      'top': '55%',
       'margin-top': '-10px', 
       'right': '33%',
       'z-index': '1500',
