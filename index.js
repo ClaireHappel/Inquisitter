@@ -659,12 +659,12 @@ const addUfoFeed = function() {
   <div id="cryptid-wrapper" class="cryptid-container" style="
     position: relative; 
     float: right; 
-    margin-top: 60vh; 
+    margin-top: 50vh; 
     max-width: 25%; 
     z-index: 1000; 
     cursor: pointer;"> 
     <h3 style="font-size: 14px; color: #BBA252; text-align: center; margin-bottom: 5px;">CRYPTIDS: DO_THEY_WALK_AMONG_US?</h3> 
-    <img id="image-cryptid" src="${images[0]}" style="width: 100%; height: 420px; max-height: 90vh; border: 1px solid #BBA252; background: #fff; border-radius: 10px;"> 
+    <img id="image-cryptid" src="${images[0]}" style="width: 100%; height: 420px; max-height: 40vh; border: 1px solid #BBA252; background: #fff; border-radius: 10px;"> 
 </div>`;
 
     $("#all-contents").prepend(cryptidContain);
