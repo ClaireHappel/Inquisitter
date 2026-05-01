@@ -64,12 +64,17 @@ $(() => {
           'box-shadow': 'inset 0 0 20px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
           'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
           'border-radius': '18px',                       // Rounded corners
-          'width': '15%',
-          'padding': '15px 10px',     // Added shorthand padding to shrink the internal "air"
+          'padding': '20px 30px',     // Added shorthand padding to shrink the internal "air"
           'width': 'auto',
           'max-width': '80vw',      // Keeps it from bleeding off the sides
           'margin': '20px auto',    // Centers it and uses smaller margins for mobile
-          'transform': 'translate(29vw, 6vh)',
+          'display': 'inline-block', // NECESSARY: Allows side-by-side
+          'vertical-align': 'top',    // NECESSARY: Aligns the tops of the boxes
+          'margin': '0',
+          'z-index': '10000',
+          'position': 'fixed',
+          'left': 'clamp(5%, 40%, 40%)', // Matches your shared group anchor
+          'transform': 'translate(calc(-100% - 70px), clamp(100px, 10vh, 500px))',
         });
         // clear feed
         $tweetsContainer.empty();
@@ -580,30 +585,33 @@ const addMyTitle = function() {
   // Inquisitter: A Twitter Clone That Questions Everything
   // Fixed using position: relative so it pushes other content down instead of covering it.
   const title = `
-    <div id="main-header-container" style="
-      position: relative; 
-      text-align: center; 
-      height: auto !important; 
-      justify-content: center;
-      align-items: center;
-      position: relative !important; 
-      margin-bottom: 0 !important;
-      padding-bottom: 10px !important;
+     <div id="main-header-container" style="
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      display: flex !important;
+      justify-content: center !important;
+      z-index: 9000 !important;
+      padding-top: 10px !important;
+      padding-bottom: 20px !important;
     ">
       <h1 style="
         color: #BBA252;
         font-family: 'Montserrat', sans-serif;
-        font-size: clamp(2rem, 6vw, 5rem); /* Keeps text from getting too huge on desktops */
+        font-size: clamp(2rem, 6vw, 5rem);
         font-weight: 700;
-        text-align: center;  
         text-transform: uppercase;
-        letter-spacing: clamp(5px, 2vw, 25px); margin: 0; padding-left: 1px; white-space: normal;
-        max-width: 100%; 
-        overflow: hidden; 
+        letter-spacing: clamp(5px, 2vw, 25px);
+        margin: 0;
+        text-align: center;
+        white-space: nowrap;
       ">
+
         𓁝𓁀 Inquisitter 𓁁𓅈
       </h1>
-    </div>`;
+    </div>
+     <div style="height: 160px; width: 100%;"></div>`;
 
   // Append to all contents
   $('#all-contents').prepend(title); // Use .prepend() to ensure it is the very first item
@@ -788,11 +796,17 @@ const addUfoFeed = function() {
       'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
       'border-radius': '18px',                       // Rounded corners
       'width': '15%',
-      'padding': '15px 10px',    // Added shorthand padding to shrink the internal "air"
+      'padding': '20px 30px',    // Added shorthand padding to shrink the internal "air"
       'width': 'auto',
       'max-width': '80vw',      // Keeps it from bleeding off the sides
       'margin': '20px auto',    // Centers it and uses smaller margins for mobile
-      'transform': 'translate(29vw, 6vh)',
+      'display': 'inline-block', // NECESSARY: Allows side-by-side
+      'vertical-align': 'top',    // NECESSARY: Aligns the tops of the boxes
+      'margin': '0',
+      'z-index': '10000',
+      'position': 'fixed',
+      'left': 'clamp(5%, 40%, 40%)', // Matches your shared group anchor
+      'transform': 'translate(calc(-100% - 70px), clamp(100px, 10vh, 500px))',
     });
   };
 
@@ -802,6 +816,8 @@ const addUfoFeed = function() {
     const clickedTag = $(this).text();
     filterByHashtag(clickedTag);
   });
+
+  
 
   //////////////////////////////////////////////////////////
   // MAIN STYLE SECTION
@@ -835,12 +851,18 @@ const addUfoFeed = function() {
     'margin-left': '40px',      // Reduced margin to take up less vertical space
     'padding': '10px 15px',     // Added shorthand padding to shrink the internal "air"
     'margin-bottom': '40px',
-    'width': 'auto',
     'max-width': '80vw',      // Keeps it from bleeding off the sides
     'margin': '20px auto',    // Centers it and uses smaller margins for mobile
     'font-style': 'italic', // This makes the text italic
-    'margin': '20px auto', // Keeps it centered if the parent container allows
-    'transform': 'translate(30vw, 6vh)', // Moves it 25% of the screen width to the right
+    'display': 'inline-block', // NECESSARY: Allows side-by-side
+    'vertical-align': 'top',    // NECESSARY: Aligns the tops of the boxes
+    'margin': '0',             // NECESSARY: Removes the auto-center gap
+    'position': 'fixed', // Use fixed to ensure it stays relative to the screen width
+    'width': 'clamp(100px, 15vw, 200px)',
+    'left': '40%',
+    'margin': '0',
+    'transform': 'translate(calc(-100% - 1px), 5vh)',
+    'z-index': '10000'
   });
   // FOR MESSAGE INPUT
   $tweetInput.css({
@@ -856,11 +878,19 @@ const addUfoFeed = function() {
     'border-top-right-radius': '20px',
     'border-bottom-right-radius': '20px',
     'padding': '10px 15px',     // Added shorthand padding to shrink the internal "air"
-    'width': '26%',
+    'width': 'clamp(200px, 40vw, 580px)', 
     'max-width': '80vw',      // Keeps it from bleeding off the sides
-     'margin': '20px auto', // Keeps it centered if the parent container allows
-    'transform': 'translate(30vw, 6vh)',
-    'font-style': 'italic' // This makes the text italic
+    'margin': '20px auto', // Keeps it centered if the parent container allows
+    'font-style': 'italic', // This makes the text italic
+    'display': 'inline-block', // NECESSARY: Allows side-by-side
+    'vertical-align': 'top',    // NECESSARY: Aligns the tops of the boxes
+    'margin': '0',             // NECESSARY: Removes the auto-center gap
+    'display': 'inline-block',
+    'position': 'fixed',
+    'left': '40%',
+    'margin': '0',
+    'transform': 'translate(1px, 5vh)',
+    'z-index': '10000'
   });
 
   // FOR POST BUTTON:
@@ -878,13 +908,17 @@ const addUfoFeed = function() {
     'box-shadow': 'inset 0 0 0px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
     'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
     'border-radius': '18px',                       // Rounded corners
-    'margin': '10px auto',      // Reduced margin to take up less vertical space
-    'margin-left': '15px',
-    'padding': '15px 10px',     // Added shorthand padding to shrink the internal "air"
-    'width': 'auto',
-    'max-width': '80vw',      // Keeps it from bleeding off the sides
+    'padding': '20px clamp(10px, 5vw, 180px)',     // Added shorthand padding to shrink the internal "air"
+    'max-width': '60vw',      // Keeps it from bleeding off the sides
     'margin': '20px auto',    // Centers it and uses smaller margins for mobile
-    'transform': 'translate(30vw, 6vh)',
+    'display': 'inline-block', // NECESSARY: Allows side-by-side
+    'vertical-align': 'top',    // NECESSARY: Aligns the tops of the boxes
+    'margin': '0',             // NECESSARY: Removes the auto-center gap
+    'z-index': '10000',
+    'width': 'auto',
+    'position': 'fixed', // Added to match the inputs
+    'left': 'clamp(5%, 40%, 40%)',       // Matches your new anchor
+   'transform': 'translate(-50px, clamp(100px, 10vh, 500px))',
   });
 
   // FOR NEW TWEETS BUTTON:
@@ -895,19 +929,24 @@ const addUfoFeed = function() {
     'color': '#F5F0E6',
     'font-family': "'Montserrat', sans-serif",
     'font-weight': '100', // Lighter weight looks more elegant
-    'letter-spacing': '1px', // Slight spacing adds a "boutique" feel
+     'letter-spacing': '1px', // Slight spacing adds a "boutique" feel
     'text-shadow': '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000',
     'backdrop-filter': 'blur(50px)',               // The glass blur
     '-webkit-backdrop-filter': 'blur(50px)',       // Safari support
     'box-shadow': 'inset 0 0 0px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
     'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
     'border-radius': '18px',                       // Rounded corners
-    'margin-right': '15px',
-    'padding': '15px 10px',     // Added shorthand padding to shrink the intern
-    'width': 'auto',
-    'max-width': '80vw',      // Keeps it from bleeding off the sides
+    'padding': '20px clamp(10px, 5vw, 180px)',     // Added shorthand padding to shrink the internal "air"
+    'max-width': '60vw',      // Keeps it from bleeding off the sides
     'margin': '20px auto',    // Centers it and uses smaller margins for mobile
-    'transform': 'translate(30vw, 6vh)',
+    'display': 'inline-block', // NECESSARY: Allows side-by-side
+    'vertical-align': 'top',    // NECESSARY: Aligns the tops of the boxes
+    'margin': '0',             // NECESSARY: Removes the auto-center gap
+    'z-index': '10000',
+    'width': 'auto',
+    'position': 'fixed', // Added to match the inputs
+    'left': 'clamp(5%, 40%, 40%)',       // Matches your new anchor
+  'transform': 'translate(calc(10vw + 10px), clamp(100px, 10vh, 500px))'
   });
 
   // FOR .TWEETS
