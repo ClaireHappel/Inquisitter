@@ -245,7 +245,7 @@ $(document).ready(function() {
   $newTweetsButton.on('click', function() {
     // home button should be hidden
     $homeButton.hide();
-    // we refresh to get newTweets
+    // we refresh to get ne
     newTweet();
 
     // COMMENT CONTAINER
@@ -910,9 +910,9 @@ $(document).ready(function() {
     'border-top-left-radius': '20px',
     'border-bottom-left-radius': '20px',
     'margin-left': '40px',      // Reduced margin to take up less vertical space
-    'padding': '10px 15px',     // Added shorthand padding to shrink the internal "air"
+    'padding': '10px calc(2vw + 10px)', 
     'margin-bottom': '40px',
-    'max-width': '80vw',      // Keeps it from bleeding off the sides
+    'max-width': '60vw',      // Keeps it from bleeding off the sides
     'margin': '20px auto',    // Centers it and uses smaller margins for mobile
     'font-style': 'italic', // This makes the text italic
     'display': 'inline-block', // NECESSARY: Allows side-by-side
@@ -937,10 +937,8 @@ $(document).ready(function() {
     '-webkit-backdrop-filter': 'blur(50px)',       // Safari support
     'border-top-right-radius': '20px',
     'border-bottom-right-radius': '20px',
-    'padding': '10px 15px',     // Added shorthand padding to shrink the internal "air"
-    'width': 'clamp(200px, 40vw, 580px)', 
-    'max-width': '80vw',      // Keeps it from bleeding off the sides
-    'margin': '20px auto', // Keeps it centered if the parent container allows
+    'padding': '10px calc(2vw + 28px)', 
+    'max-width': '37vw',      // Keeps it from bleeding off the sides
     'font-style': 'italic', // This makes the text italic
     'display': 'inline-block', // NECESSARY: Allows side-by-side
     'vertical-align': 'top',    // NECESSARY: Aligns the tops of the boxes
@@ -948,9 +946,8 @@ $(document).ready(function() {
     'display': 'inline-block',
     'position': 'fixed', // Added to match the inputs
     'left': 'clamp(5%, 40%, 40%)',       // Matches your new anchor
-    'transform': 'translate(2%, -48vh)',
-    'width': 'clamp(770px, 28vw, 580px)',
-    'max-width': '45vw', 
+    'transform': 'translate(1%, -48vh)',
+    'width': 'clamp(280px, 37vw, 670px)',
     'z-index': '10000'
   });
 
@@ -968,8 +965,7 @@ $(document).ready(function() {
     '-webkit-backdrop-filter': 'blur(50px)',       // Safari support
     'box-shadow': 'inset 0 0 0px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
     'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
-    'padding': '10px calc(13.75vw - 100px)',    // Added shorthand padding to shrink the internal "air"
-    'max-width': '60vw',      // Keeps it from bleeding off the sides
+    'padding': '10px calc(2vw + 10px)',    // Added shorthand padding to shrink the internal "air"
     'margin': '20px auto',    // Centers it and uses smaller margins for mobile
     'display': 'inline-block', // NECESSARY: Allows side-by-side
     'vertical-align': 'top',    // NECESSARY: Aligns the tops of the boxes
@@ -998,7 +994,7 @@ $(document).ready(function() {
     '-webkit-backdrop-filter': 'blur(50px)',       // Safari support
     'box-shadow': 'inset 0 0 0px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
     'border': '.5px solid rgba(20, 16, 2, 0)', // Thin "glass" edge                       // Rounded corners
-    'padding': '10px calc(13.75vw - 100px)',      // Added shorthand padding to shrink the internal "air"
+    'padding': '10px calc(2vw + 10px)',       // Added shorthand padding to shrink the internal "air"
     'max-width': '60vw',      // Keeps it from bleeding off the sides
     'margin': '20px auto',    // Centers it and uses smaller margins for mobile
     'display': 'inline-block', // NECESSARY: Allows side-by-side
@@ -1008,8 +1004,8 @@ $(document).ready(function() {
     'position': 'fixed', // Added to match the inputs
     'left': 'clamp(5%, 16%, 40%)',
     'transform': 'translate(103%, -40vh)',
-     'width': 'clamp(40px, 37vw, 655px)',
-    'max-width': '80vw', 
+    'width': 'clamp(40px, 37vw, 655px)',
+    'max-width': '60vw', 
     'text-align': 'center',
     'white-space': 'nowrap',
     'border-top-right-radius': '20px',
