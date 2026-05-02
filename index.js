@@ -49,32 +49,37 @@ $(() => {
         const userTweets = streams.users[user];
         // nothing to see here, just disappearing my homeButton
         $homeButton.show().css({
-          'margin-top': '13px',
-          'margin-left': '1200px',
-          'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgba(18,18,18, .6) 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
-          'background-size': '300px',
-          'background-repeat': 'repeat',
-          'color': '#F5F0E6',
-          'font-family': "'Montserrat', sans-serif",
-          'font-weight': '100', // Lighter weight looks more elegant
-          'letter-spacing': '1px', // Slight spacing adds a "boutique" feel
-          'text-shadow': '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000',
-          'backdrop-filter': 'blur(50px)',               // The glass blur
-          '-webkit-backdrop-filter': 'blur(50px)',       // Safari support
-          'box-shadow': 'inset 0 0 20px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
-          'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
-          'border-radius': '18px',                       // Rounded corners
-          'padding': '20px 30px',     // Added shorthand padding to shrink the internal "air"
-          'width': 'auto',
-          'max-width': '80vw',      // Keeps it from bleeding off the sides
-          'margin': '20px auto',    // Centers it and uses smaller margins for mobile
-          'display': 'inline-block', // NECESSARY: Allows side-by-side
-          'vertical-align': 'top',    // NECESSARY: Aligns the tops of the boxes
-          'margin': '0',
-          'z-index': '10000',
-          'position': 'fixed',
-          'left': 'clamp(5%, 40%, 40%)', // Matches your shared group anchor
-          'transform': 'translate(calc(-100% - 70px), clamp(100px, 10vh, 500px))',
+     'margin-top': '13px',
+      'margin-left': '1350px',
+      'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgba(18,18,18, .6) 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
+      'background-size': '300px',
+      'background-repeat': 'repeat',
+      'color': '#F5F0E6',
+      'font-family': "'Montserrat', sans-serif",
+      'font-weight': '100', // lighter weight looks more elegant
+      'letter-spacing': '1px', // slight spacing
+      'text-shadow': '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000',
+      'backdrop-filter': 'blur(50px)',               // The glass blur
+      '-webkit-backdrop-filter': 'blur(50px)',       // safari support
+      'box-shadow': 'inset 0 0 20px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
+      'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
+      'border-radius': '18px',                       // Rounded corners
+      'width': '15%',
+      'padding': '10px 20px',    // Added shorthand padding to shrink the internal "air"
+      'width': 'auto',
+      'max-width': '80vw',      // Keeps it from bleeding off the sides
+    // Centers it and uses smaller margins for mobile
+      'vertical-align': 'top',    // NECESSARY: Aligns the tops of the boxes
+      'display': 'inline-block', // NECESSARY: Allows side-by-side
+    'vertical-align': 'top',    // NECESSARY: Aligns the tops of the boxes
+    'margin': '0',             // NECESSARY: Removes the auto-center gap
+    'position': 'fixed', // Use fixed to ensure it stays relative to the screen width
+    'left': 'clamp(5%, 21%, 30%)',       // Matches your new anchor
+    'transform': 'translate(-140%, -44vh)',  // Locks to left of center line
+    'width': 'clamp(5px, 17vw, 90px)',
+    'z-index': '10000',
+     'text-align': 'left',
+    'white-space': 'nowrap',
         });
         // clear feed
         $tweetsContainer.empty();
@@ -593,7 +598,7 @@ const addMyTitle = function() {
       display: flex !important;
       justify-content: center !important;
       z-index: 9000 !important;
-      padding-top: 10px !important;
+      padding-top: 50px !important;
       padding-bottom: 20px !important;
     ">
       <h1 style="
@@ -620,11 +625,12 @@ const addMyTitle = function() {
   addMyTitle();
 
   ////////////////////////////////////////////////////////////
+  // MAKE A UFO FEED
 
 const addUfoFeed = function() {
 // live feed broke so I made something that still looks snazy
  const feed = `
-  <div id="mystery-feed-wrapper" style="position: relative; text-align: center; margin-top: 20vh; max-width: 20%; z-index: 1000;">
+  <div id="mystery-feed-wrapper" style="position: relative; text-align: center; margin-top: 70vh; max-width: 20%; z-index: 1000;">
    <h3 style="font-size: 14px; color: #BBA252; margin-bottom: 5px;">UFO_SIGHTING_LOGS:</h3>
     <div style="width: 100%; height: 600px; max-height: 70vh; border: 1px solid #BBA252; background: url('https://i.postimg.cc/bJqNFzSV/image-531806d1.png') no-repeat center center; background-size: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center; padding: 20px;">
     <a href="https://nuforc.org" target="_blank" style="color: #fff; text-decoration: none; font-family: monospace; font-size: 12px; border: 1px solid #BBA252; padding: 10px 20px; border-radius: 5px; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(2px);">
@@ -646,8 +652,7 @@ const addUfoFeed = function() {
 
   // I LOVE MY FEED BUT I SAY WITH REGRET THAT THE PAGE IS NOW LOPSIDED.
   // AT ALL COSTS THIS MUST BE CORRECTED
-  // I'M THINKING WE GO THE IMAGE CONTAINER ROUTE, I'M THINKING CRYPTIDS,
-  // MAYHAPS A NICE LITTLE CLICKABLE SLIDE SHOW OF ROYALTY FREE IMAGES?
+  // TIME TO BUILD A CRYPTID CONTAINER
 
   // CREATE A BIG OLD IMAGE CONTAINER FOR OUR CRYPTID PICS
   const addCryptidContainer = function() {
@@ -656,7 +661,7 @@ const addUfoFeed = function() {
       "https://i.postimg.cc/5NTQRb1k/stock-mothman.webp",
       "https://i.postimg.cc/cC23NSqB/6518e6a8-63b3-4c43-b5f8-7f668960b788.png",
       "https://i.postimg.cc/2SF10v5T/nessie-stock.jpg",
-      "https://i.postimg.cc/kMBT6NJf/houstan-batman-stock.jpg",
+      "https://i.postimg.cc/5tNnB050/the-Houston-Batman.jpg",
       "https://i.postimg.cc/Dzxcm0t7/rougarou-stock.jpg",
       "https://i.postimg.cc/ZYGxW1D6/wandiego-stock.jpg"
     ];
@@ -665,14 +670,14 @@ const addUfoFeed = function() {
 
     const cryptidContain = `
   <div id="cryptid-wrapper" class="cryptid-container" style="
-    position: relative; 
-    float: right; 
-    margin-top: 50vh; 
-    max-width: 25%; 
+    position: absolute;       /* Changes to absolute to ignore the UFO feed's 'space' */
+    right:  0%;                /* Anchors it to the right edge */
+    top: 70vh;                /* EXACT match to your UFO margin-top */
+    width: 25%;               /* Matches your max-width */
     z-index: 1000; 
     cursor: pointer;"> 
     <h3 style="font-size: 14px; color: #BBA252; text-align: center; margin-bottom: 5px;">CRYPTIDS: DO_THEY_WALK_AMONG_US?</h3> 
-    <img id="image-cryptid" src="${images[0]}" style="width: 100%; height: 420px; max-height: 40vh; border: 1px solid #BBA252; background: #fff; border-radius: 10px;"> 
+    <img id="image-cryptid" src="${images[0]}" style="width: 100%; height: 520px; max-height: 50vh; border: 1px solid #BBA252; background: #fff; border-radius: 10px;"> 
 </div>`;
 
     $("#all-contents").prepend(cryptidContain);
@@ -694,6 +699,46 @@ const addUfoFeed = function() {
   addCryptidContainer();
 
   ////////////////////////////////////////////////////////////////////////////////////////
+
+$(document).ready(function() {
+    // 1. Create the container
+    const $glassContainer = $('<div class="glass-container"></div>');
+
+    // 2. APPLY THE STYLE TO THE VARIABLE (NOT THE CLASS)
+    $glassContainer.css({
+       'box-shadow': 'inset -90px 90px 70px 90px #020000',
+       'background-size': '200px',
+        'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, #af8809b4 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
+        'opacity': '0.8',
+        'background-size': '450px',
+        'background-repeat': 'repeat',
+        'backdrop-filter': 'blur(10px)', 
+        '-webkit-backdrop-filter': 'blur(10px)',
+        'border-radius': '10px',
+        'padding': '180px',
+        'margin-top': '10px',
+        'display': 'flex', 
+        'gap': '10px', 
+        'align-items': 'center',
+        'position': 'relative',
+        'z-index': '5000',
+        'left': '0',
+        'position': 'fixed',
+          'top': '0',
+    'left': '0',
+    'width': '100%',
+    'justify-content': 'center',
+     'width': '100vw',
+    'max-height': '40vh',
+    'overflow': 'hidden',
+      'height': 'clamp(0px, 2vh, 500px)'
+    });
+
+
+    // 4. Inject it
+    $('#main-header-container').after($glassContainer);
+});
+  ///////////////////////////////////////////////////////////////////////////////////////
 
   // CREATE HASHTAGS THAT WHEN CLICKED DISPLAY ALL TWEETS WITH THAT HASHTAG
 
@@ -717,6 +762,8 @@ const addUfoFeed = function() {
     });
 
     $tweetsContainer.append($tagTimeline);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // TRIGGER ALL OF THE CSS
     $('.tweet').css({
@@ -796,17 +843,21 @@ const addUfoFeed = function() {
       'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
       'border-radius': '18px',                       // Rounded corners
       'width': '15%',
-      'padding': '20px 30px',    // Added shorthand padding to shrink the internal "air"
+      'padding': '10px 20px',    // Added shorthand padding to shrink the internal "air"
       'width': 'auto',
       'max-width': '80vw',      // Keeps it from bleeding off the sides
-      'margin': '20px auto',    // Centers it and uses smaller margins for mobile
-      'display': 'inline-block', // NECESSARY: Allows side-by-side
+    // Centers it and uses smaller margins for mobile
       'vertical-align': 'top',    // NECESSARY: Aligns the tops of the boxes
-      'margin': '0',
-      'z-index': '10000',
-      'position': 'fixed',
-      'left': 'clamp(5%, 40%, 40%)', // Matches your shared group anchor
-      'transform': 'translate(calc(-100% - 70px), clamp(100px, 10vh, 500px))',
+      'display': 'inline-block', // NECESSARY: Allows side-by-side
+    'vertical-align': 'top',    // NECESSARY: Aligns the tops of the boxes
+    'margin': '0',             // NECESSARY: Removes the auto-center gap
+    'position': 'fixed', // Use fixed to ensure it stays relative to the screen width
+    'left': 'clamp(5%, 21%, 30%)',       // Matches your new anchor
+    'transform': 'translate(-140%, -44vh)',  // Locks to left of center line
+    'width': 'clamp(5px, 17vw, 90px)',
+    'z-index': '10000',
+     'text-align': 'left',
+    'white-space': 'nowrap',
     });
   };
 
@@ -826,13 +877,16 @@ const addUfoFeed = function() {
     'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgba(18,18,18, 0.6) 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
     'background-size': '700px',
     'background-repeat': 'repeat',
+     'padding': '10px 15px',
+     
   });
 
   // MAIN HEADER CONTAINER
   $('#main-header-container').css({
-    'box-shadow': 'inset 0 0 90px #20201f',
-    'background-size': '1000px',
-    'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgba(122, 97, 13, 0.6) 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
+    'box-shadow': 'inset 70px 100px 100px 10px #0f0404f6',
+    '-webkit-mask-image': 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)',
+    'margin': '0px',
+    'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgb(122, 96, 13) 100%)',
   });
 
   // FOR USERNAME INPUT
@@ -858,10 +912,9 @@ const addUfoFeed = function() {
     'vertical-align': 'top',    // NECESSARY: Aligns the tops of the boxes
     'margin': '0',             // NECESSARY: Removes the auto-center gap
     'position': 'fixed', // Use fixed to ensure it stays relative to the screen width
-    'width': 'clamp(100px, 15vw, 200px)',
-    'left': '40%',
-    'margin': '0',
-    'transform': 'translate(calc(-100% - 1px), 5vh)',
+    'left': 'clamp(5%, 20%, 40%)',       // Matches your new anchor
+    'transform': 'translate(-4%, -48vh)',  // Locks to left of center line
+    'width': 'clamp(200px, 20vw, 580px)',
     'z-index': '10000'
   });
   // FOR MESSAGE INPUT
@@ -886,10 +939,11 @@ const addUfoFeed = function() {
     'vertical-align': 'top',    // NECESSARY: Aligns the tops of the boxes
     'margin': '0',             // NECESSARY: Removes the auto-center gap
     'display': 'inline-block',
-    'position': 'fixed',
-    'left': '40%',
-    'margin': '0',
-    'transform': 'translate(1px, 5vh)',
+    'position': 'fixed', // Added to match the inputs
+    'left': 'clamp(5%, 40%, 40%)',       // Matches your new anchor
+    'transform': 'translate(2%, -48vh)',
+    'width': 'clamp(770px, 28vw, 580px)',
+    'max-width': '45vw', 
     'z-index': '10000'
   });
 
@@ -907,18 +961,20 @@ const addUfoFeed = function() {
     '-webkit-backdrop-filter': 'blur(50px)',       // Safari support
     'box-shadow': 'inset 0 0 0px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
     'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
-    'border-radius': '18px',                       // Rounded corners
-    'padding': '20px clamp(10px, 5vw, 180px)',     // Added shorthand padding to shrink the internal "air"
+    'padding': '10px calc(13.75vw - 100px)',    // Added shorthand padding to shrink the internal "air"
     'max-width': '60vw',      // Keeps it from bleeding off the sides
     'margin': '20px auto',    // Centers it and uses smaller margins for mobile
     'display': 'inline-block', // NECESSARY: Allows side-by-side
     'vertical-align': 'top',    // NECESSARY: Aligns the tops of the boxes
     'margin': '0',             // NECESSARY: Removes the auto-center gap
     'z-index': '10000',
-    'width': 'auto',
     'position': 'fixed', // Added to match the inputs
-    'left': 'clamp(5%, 40%, 40%)',       // Matches your new anchor
-   'transform': 'translate(-50px, clamp(100px, 10vh, 500px))',
+    'left': 'clamp(3%, 30%, 40%)',       // Matches your new anchor
+    'transform': 'translate(-35%, -40vh)',  // Locks to left of center line
+    'width': 'clamp(20px, 35vw, 660px)',
+    'max-width': '80vw',      // Keeps it from bleeding off the sides
+    'border-top-left-radius': '20px',
+    'border-bottom-left-radius': '20px',
   });
 
   // FOR NEW TWEETS BUTTON:
@@ -929,24 +985,28 @@ const addUfoFeed = function() {
     'color': '#F5F0E6',
     'font-family': "'Montserrat', sans-serif",
     'font-weight': '100', // Lighter weight looks more elegant
-     'letter-spacing': '1px', // Slight spacing adds a "boutique" feel
+    'letter-spacing': '1px', // Slight spacing adds a "boutique" feel
     'text-shadow': '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000',
     'backdrop-filter': 'blur(50px)',               // The glass blur
     '-webkit-backdrop-filter': 'blur(50px)',       // Safari support
     'box-shadow': 'inset 0 0 0px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
-    'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge
-    'border-radius': '18px',                       // Rounded corners
-    'padding': '20px clamp(10px, 5vw, 180px)',     // Added shorthand padding to shrink the internal "air"
+    'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge                       // Rounded corners
+    'padding': '10px calc(13.75vw - 100px)',      // Added shorthand padding to shrink the internal "air"
     'max-width': '60vw',      // Keeps it from bleeding off the sides
     'margin': '20px auto',    // Centers it and uses smaller margins for mobile
     'display': 'inline-block', // NECESSARY: Allows side-by-side
     'vertical-align': 'top',    // NECESSARY: Aligns the tops of the boxes
     'margin': '0',             // NECESSARY: Removes the auto-center gap
     'z-index': '10000',
-    'width': 'auto',
     'position': 'fixed', // Added to match the inputs
     'left': 'clamp(5%, 40%, 40%)',       // Matches your new anchor
-  'transform': 'translate(calc(10vw + 10px), clamp(100px, 10vh, 500px))'
+    'transform': 'translate(30%, -40vh)',
+    'width': 'clamp(220px, 35vw, 630px)',
+    'max-width': '80vw', 
+    'text-align': 'center',
+    'white-space': 'nowrap',
+    'border-top-right-radius': '20px',
+    'border-bottom-right-radius': '20px',
   });
 
   // FOR .TWEETS
