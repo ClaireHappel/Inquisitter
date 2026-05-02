@@ -155,7 +155,7 @@ $(() => {
           'font-size': '0.65rem',
           'display': 'inline-block',
           'text-align': 'right',
-          'color': 'rgba(255, 255, 255, 0.5)', // Dimmed out
+          'color': '#ffffffb9', // Dimmed out
           'margin-left': '5px'
         });
 
@@ -164,7 +164,7 @@ $(() => {
           'display': 'inline-block',
           'margin-left': '10px',
           'text-align': 'right',
-          'color': 'rgba(255, 255, 255, 0.5)', // Dimmed out
+          'color': '#ffffffb9', // Dimmed out
         });
       });
 
@@ -332,7 +332,7 @@ $(document).ready(function() {
       'font-size': '0.65rem',
       'display': 'inline-block',
       'text-align': 'right',
-      'color': 'rgba(255, 255, 255, 0.5)', // Dimmed out
+      'color': '#ffffffb9', // Dimmed out
       'margin-left': '5px'
     });
 
@@ -341,7 +341,7 @@ $(document).ready(function() {
       'display': 'inline-block',
       'margin-left': '10px',
       'text-align': 'right',
-      'color': 'rgba(255, 255, 255, 0.5)', // Dimmed out
+      'color': '#ffffffb9', // Dimmed out
     });
 
   });
@@ -350,7 +350,7 @@ $(document).ready(function() {
 
   // create something as a bonus that rotates randomly between placeholder inputs
   const randomPlaceholder = () => {
-    const placesToHold = ["Oh wanderer, confess to me your strife...", "Tell me your secrets...", "Reveal the mysteries of your mind...", "Only through mystery and madness is the soul revealed.", "For me, time is the greatest mystery of all. -Anthony Hopkins", "Here there be monsters...", "The most beautiful thing we can experience is the mysterious."];
+    const placesToHold = ["Confess to me your strife...", "Tell me your secrets...", "Reveal your mind...", "Type into the void...", "Ponder the mystery...", "Here there be monsters...", "Enlighten us, traveler..."];
     const getRandom = arr => arr[Math.floor(Math.random() * arr.length)];
     return getRandom(placesToHold);
   };
@@ -478,7 +478,7 @@ $(document).ready(function() {
       'font-size': '0.65rem',
       'display': 'inline-block',
       'text-align': 'right',
-      'color': 'rgba(255, 255, 255, 0.5)', // Dimmed out
+      'color': '#ffffffb9', // Dimmed out
       'margin-left': '5px'
     });
 
@@ -487,7 +487,7 @@ $(document).ready(function() {
       'display': 'inline-block',
       'margin-left': '10px',
       'text-align': 'right',
-      'color': 'rgba(255, 255, 255, 0.5)', // Dimmed out
+      'color':'#ffffffb9', // Dimmed out
     });
 
   });
@@ -571,7 +571,7 @@ $(document).ready(function() {
       'font-size': '0.65rem',
       'display': 'inline-block',
       'text-align': 'right',
-      'color': 'rgba(255, 255, 255, 0.5)', // Dimmed out
+      'color': '#ffffffb9', // Dimmed out
       'margin-left': '5px'
     });
 
@@ -580,7 +580,7 @@ $(document).ready(function() {
       'display': 'inline-block',
       'margin-left': '10px',
       'text-align': 'right',
-      'color': 'rgba(255, 255, 255, 0.5)', // Dimmed out
+      'color': '#ffffffb9', // Dimmed out
     });
 
   });
@@ -767,7 +767,7 @@ $(document).ready(function() {
 
     // TRIGGER ALL OF THE CSS
     $('.tweet').css({
-      'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgba(18,18,18,1) 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
+      'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, #121212 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
       'background-size': '1000px',
       'background-repeat': 'repeat',
       'color': '#F5F0E6',
@@ -804,7 +804,7 @@ $(document).ready(function() {
       'padding': '10px 15px',
       'border-radius': '20px',
       'background-size': '350px',
-      'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, rgba(18,18,18,0) 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
+      'background-image': 'repeating-radial-gradient(circle at center, transparent 0%, #12121211 100%), url("https://i.postimg.cc/WzbPmVgX/image-d14cc006.png")',
       'box-shadow': 'inset 0 0 50px #030303', // an internal box shadow because we are really cool
       'color': '#ffffff' // Pure white for high contrast
     });
@@ -814,7 +814,7 @@ $(document).ready(function() {
       'font-size': '0.65rem',
       'display': 'inline-block',
       'text-align': 'right',
-      'color': 'rgba(255, 255, 255, 0.5)', // Dimmed out
+      'color': '#ffffffb9', // Dimmed out
       'margin-left': '5px'
     });
 
@@ -823,7 +823,7 @@ $(document).ready(function() {
       'display': 'inline-block',
       'margin-left': '10px',
       'text-align': 'right',
-      'color': 'rgba(255, 255, 255, 0.5)'// Dimmed out
+      'color': '#ffffffb9'// Dimmed out
     });
 
     $homeButton.css({
@@ -969,9 +969,9 @@ $(document).ready(function() {
     'margin': '0',             // NECESSARY: Removes the auto-center gap
     'z-index': '10000',
     'position': 'fixed', // Added to match the inputs
-    'left': 'clamp(3%, 30%, 40%)',       // Matches your new anchor
-    'transform': 'translate(-35%, -40vh)',  // Locks to left of center line
-    'width': 'clamp(20px, 35vw, 660px)',
+    'left': 'clamp(50%, 50%, 50%)',
+    'transform': 'translate(-100%, -40vh)',
+    'width': 'clamp(20px, 31vw, 655px)',
     'max-width': '80vw',      // Keeps it from bleeding off the sides
     'border-top-left-radius': '20px',
     'border-bottom-left-radius': '20px',
@@ -999,9 +999,9 @@ $(document).ready(function() {
     'margin': '0',             // NECESSARY: Removes the auto-center gap
     'z-index': '10000',
     'position': 'fixed', // Added to match the inputs
-    'left': 'clamp(5%, 40%, 40%)',       // Matches your new anchor
-    'transform': 'translate(30%, -40vh)',
-    'width': 'clamp(220px, 35vw, 630px)',
+    'left': 'clamp(50%, 50%, 50%)',
+    'transform': 'translate(-1%, -40vh)',
+    'width': 'clamp(235px, 31vw, 610px)',
     'max-width': '80vw', 
     'text-align': 'center',
     'white-space': 'nowrap',
@@ -1062,7 +1062,7 @@ $(document).ready(function() {
     'font-size': '0.65rem',
     'display': 'inline-block',
     'text-align': 'right',
-    'color': 'rgba(255, 255, 255, 0.5)', // Dimmed out
+    'color': '#ffffffd8', // Dimmed out
     'margin-left': '5px'
   });
 
@@ -1071,7 +1071,7 @@ $(document).ready(function() {
     'display': 'inline-block',
     'margin-left': '10px',
     'text-align': 'right',
-    'color': 'rgba(255, 255, 255, 0.5)', // Dimmed out
+    'color': '#ffffffb9', // Dimmed out
   });
 
   // COMMENT CONTAINER
