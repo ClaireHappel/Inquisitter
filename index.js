@@ -243,6 +243,9 @@ $(document).ready(function() {
  
   // action to add button functionality
   $newTweetsButton.on('click', function() {
+    // home button should be hidden
+    $homeButton.hide();
+    // we refresh to get newTweets
     newTweet();
 
     // COMMENT CONTAINER
@@ -374,6 +377,9 @@ $(document).ready(function() {
   // input functionality
   $tweetButton.on('click', function() {
 
+    // home button should be hidden
+    $homeButton.hide();
+
     const username = $('#username-input').val();
     const message = $('#message-input').val();
 
@@ -384,9 +390,10 @@ $(document).ready(function() {
       if (!streams.users[window.visitor]) {
         streams.users[window.visitor] = [];
       }
-      // write and refresh
+      // write
       writeTweet(message);
       $('#message-input').val('');
+      // refresh
       newTweet();
 
     }
@@ -969,9 +976,9 @@ $(document).ready(function() {
     'margin': '0',             // NECESSARY: Removes the auto-center gap
     'z-index': '10000',
     'position': 'fixed', // Added to match the inputs
-    'left': 'clamp(50%, 50%, 50%)',
-    'transform': 'translate(-100%, -40vh)',
-    'width': 'clamp(20px, 31vw, 655px)',
+    'left': 'clamp(5%, 20%, 40%)',
+    'transform': 'translate(-4%, -40vh)',
+    'width': 'clamp(40px, 37vw, 640px)',
     'max-width': '80vw',      // Keeps it from bleeding off the sides
     'border-top-left-radius': '20px',
     'border-bottom-left-radius': '20px',
@@ -990,7 +997,7 @@ $(document).ready(function() {
     'backdrop-filter': 'blur(50px)',               // The glass blur
     '-webkit-backdrop-filter': 'blur(50px)',       // Safari support
     'box-shadow': 'inset 0 0 0px rgba(37, 29, 2, 0.1)', // an internal box shadow because we are really cool
-    'border': '.5px solid rgba(212, 168, 23, 0.1)', // Thin "glass" edge                       // Rounded corners
+    'border': '.5px solid rgba(20, 16, 2, 0)', // Thin "glass" edge                       // Rounded corners
     'padding': '10px calc(13.75vw - 100px)',      // Added shorthand padding to shrink the internal "air"
     'max-width': '60vw',      // Keeps it from bleeding off the sides
     'margin': '20px auto',    // Centers it and uses smaller margins for mobile
@@ -999,9 +1006,9 @@ $(document).ready(function() {
     'margin': '0',             // NECESSARY: Removes the auto-center gap
     'z-index': '10000',
     'position': 'fixed', // Added to match the inputs
-    'left': 'clamp(50%, 50%, 50%)',
-    'transform': 'translate(-1%, -40vh)',
-    'width': 'clamp(235px, 31vw, 610px)',
+    'left': 'clamp(5%, 16%, 40%)',
+    'transform': 'translate(103%, -40vh)',
+     'width': 'clamp(40px, 37vw, 655px)',
     'max-width': '80vw', 
     'text-align': 'center',
     'white-space': 'nowrap',
