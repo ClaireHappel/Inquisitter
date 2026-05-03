@@ -1005,8 +1005,8 @@ $(document).ready(function() {
     'position': 'fixed', // Added to match the inputs
     'left': 'clamp(5%, 16%, 40%)',
     'transform': 'translate(103%, -40vh)',
-    'width': 'clamp(40px, 37vw, 655px)',
-    'max-width': '60vw', 
+    'width': 'clamp(120px, 37vw, 655px)', // Raised min from 40px to 120px to fit text
+    'max-width': '80vw',
     'text-align': 'center',
     'white-space': 'nowrap',
     'border-top-right-radius': '20px',
