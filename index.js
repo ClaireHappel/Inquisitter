@@ -937,8 +937,7 @@ $(document).ready(function() {
     '-webkit-backdrop-filter': 'blur(50px)',       // Safari support
     'border-top-right-radius': '20px',
     'border-bottom-right-radius': '20px',
-    'padding': '10px calc(2vw + 28px)', 
-    'text-align': 'center',
+    'padding': '10px calc(2vw + 10px)',
     'max-width': '37vw',      // Keeps it from bleeding off the sides
     'font-style': 'italic', // This makes the text italic
     'display': 'inline-block', // NECESSARY: Allows side-by-side
@@ -948,9 +947,8 @@ $(document).ready(function() {
     'position': 'fixed', // Added to match the inputs
     'left': 'clamp(5%, 40%, 40%)',       // Matches your new anchor
     'transform': 'translate(1%, -48vh)',
-    'width': 'clamp(280px, 37vw, 670px)',
+    'width': 'clamp(280px, 37vw, 704px)',
     'z-index': '10000',
-    'white-space': 'nowrap',
   });
 
   // FOR POST BUTTON:
