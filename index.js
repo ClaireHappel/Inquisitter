@@ -938,6 +938,7 @@ $(document).ready(function() {
     'border-top-right-radius': '20px',
     'border-bottom-right-radius': '20px',
     'padding': '10px calc(2vw + 28px)', 
+    'text-align': 'center',
     'max-width': '37vw',      // Keeps it from bleeding off the sides
     'font-style': 'italic', // This makes the text italic
     'display': 'inline-block', // NECESSARY: Allows side-by-side
