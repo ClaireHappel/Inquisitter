@@ -1006,9 +1006,9 @@ $(document).ready(function() {
     'position': 'fixed', // Added to match the inputs
     'left': 'clamp(5%, 40%, 40%)',       // Matches your new anchor
     'width': 'clamp(280px, 37vw, 670px)',
-    'left': 'clamp(5%, 16%, 40%)',
-    'transform': 'translate(80%, -40vh)',
-    'width': 'clamp(150px, 42vw, 738px)', // Raised min from 40px to 120px to fit text
+    'left': 'clamp(5%, 40%, 40%)',
+    'transform': 'translate(28%, -40vh)',
+    'width': 'clamp(120px, 40vw, 640px)', // Raised min from 40px to 120px to fit text
     'max-width': '80vw',
     'text-align': 'center',
     'white-space': 'nowrap',
