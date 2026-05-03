@@ -949,7 +949,8 @@ $(document).ready(function() {
     'left': 'clamp(5%, 40%, 40%)',       // Matches your new anchor
     'transform': 'translate(1%, -48vh)',
     'width': 'clamp(280px, 37vw, 670px)',
-    'z-index': '10000'
+    'z-index': '10000',
+    'white-space': 'nowrap',
   });
 
   // FOR POST BUTTON:
@@ -1005,7 +1006,7 @@ $(document).ready(function() {
     'position': 'fixed', // Added to match the inputs
     'left': 'clamp(5%, 16%, 40%)',
     'transform': 'translate(103%, -40vh)',
-    'width': 'clamp(120px, 37vw, 655px)', // Raised min from 40px to 120px to fit text
+    'width': 'clamp(180px, 37vw, 655px)', // Raised min from 40px to 120px to fit text
     'max-width': '80vw',
     'text-align': 'center',
     'white-space': 'nowrap',
